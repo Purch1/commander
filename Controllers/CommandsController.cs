@@ -24,22 +24,22 @@ namespace Commander.Controllers
 
         //Get api/commands
         [HttpGet]
-        public ActionResult<IEnumerable<CommandCreateDto>> GetAllCommands()
+        public ActionResult<IEnumerable<CommandReadDto>> GetAllCommands()
         {
             var commandItems = _repository.GetAllCommands();
-            return Ok(_mapper.Map<IEnumerable<CommandCreateDto>>(commandItems));
+            return Ok(_mapper.Map<IEnumerable<CommandReadDto>>(commandItems));
         }
 
         //Get api/commands/{id}
         [HttpGet("{id}", Name = "GetCommandsById")]
-        public ActionResult<CommandCreateDto> GetCommandsById(int id)
+        public ActionResult<CommandReadDto> GetCommandsById(int id)
         {
             var commandItem = _repository.GetCommandById(id);
             if (commandItem == null)
             {
                 return NotFound();
             }
-            return Ok(_mapper.Map<CommandCreateDto>(commandItem));
+            return Ok(_mapper.Map<CommandReadDto>(commandItem));
         }
 
         //Post api/commands

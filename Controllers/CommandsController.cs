@@ -16,7 +16,6 @@ namespace Commander.Controllers
         {
             _repository = repository;
         }
-        // private readonly MockCommanderRepo _repository = new MockCommanderRepo();
         //Get api/commands
         [HttpGet]
         public ActionResult <IEnumerable<Command>> GetAllCommands()
@@ -31,6 +30,10 @@ namespace Commander.Controllers
         public ActionResult <Command> GetCommandsById(int id) 
         {
             var commandItem = _repository.GetCommandById(id);
+            if (commandItem == null)
+            {
+                return NotFound();
+            }
             return Ok(commandItem);
         }
     }

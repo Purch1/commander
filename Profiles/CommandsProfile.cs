@@ -4,11 +4,12 @@ using Commander.Models;
 
 namespace Commander.Profiles
 {
-    public class CommandProfile : Profile
+    public class CommandsProfile : Profile
     {
-        public CommandProfile()
+        public CommandsProfile()
         {
-            CreateMap<Command, CommandCreateDto>();
+            // Source -> Target
+            CreateMap<Command, CommandReadDto>();
             CreateMap<CommandCreateDto, Command>();
         }
     }

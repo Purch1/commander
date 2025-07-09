@@ -10,7 +10,8 @@ builder.Services.AddDbContext<CommanderContext>(options =>
 builder.Services.AddControllers();
 
 // Register repository for dependency injection
-builder.Services.AddScoped<ICommanderRepo, MockCommanderRepo>();
+// builder.Services.AddScoped<ICommanderRepo, MockCommanderRepo>();
+builder.Services.AddScoped<ICommanderRepo, SqlCommanderRepo>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

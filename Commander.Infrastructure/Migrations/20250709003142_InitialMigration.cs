@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Commander.Migrations
+namespace Commander.Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class InitialMigration : Migration

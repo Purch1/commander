@@ -1,4 +1,6 @@
-using Commander.Data;
+using Commander.Infrastructure.Data;
+using Commander.Domain.Repositories;
+using Commander.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json.Serialization;

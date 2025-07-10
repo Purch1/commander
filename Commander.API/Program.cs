@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json.Serialization;
+using Commander.Application.Profiles;
+using Commander.Domain.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,13 +22,17 @@ builder.Services.AddControllers().AddNewtonsoftJson(s =>
     s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 });
 
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+// Replace AutoMapper registration - explicitly specify the assembly containing profiles
+builder.Services.AddAutoMapper(typeof(CommandsProfile));
 
 builder.Services.AddScoped<ICommanderRepo, SqlCommanderRepo>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Configure the server URLs to use ports 5000/5001
+builder.WebHost.UseUrls("http://localhost:5000", "https://localhost:5001");
 
 var app = builder.Build();
 

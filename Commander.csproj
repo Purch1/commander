@@ -23,8 +23,8 @@
 
   <ItemGroup>
     <ProjectReference Include="Commander.Application\Commander.Application.csproj" />
-    <ProjectReference Include="Commander.Contracts\Commander.Contracts.csproj" />
     <ProjectReference Include="Commander.Infrastructure\Commander.Infrastructure.csproj" />
+    <ProjectReference Include="Commander.Contracts\Commander.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

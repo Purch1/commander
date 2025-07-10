@@ -1,6 +1,6 @@
-@Commander_HostAddress = http://localhost:5287
+@Commander_HostAddress = http://localhost:5065
 
-GET {{Commander_HostAddress}}/weatherforecast/
+GET {{Commander_HostAddress}}/api/commands/
 Accept: application/json
 
 ###

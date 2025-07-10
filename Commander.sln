@@ -1,5 +1,4 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
@@ -11,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commander.Contracts", "Comm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commander.Infrastructure", "Commander.Infrastructure\Commander.Infrastructure.csproj", "{BAAA57A1-2F11-4529-9D6A-A38C7B927EA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commander.API", "Commander.API.csproj", "{ABD305A3-5322-47D7-99B0-A80BD0BAC470}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commander.API", "Commander.API\Commander.API.csproj", "{ABD305A3-5322-47D7-99B0-A80BD0BAC470}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

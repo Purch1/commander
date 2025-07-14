@@ -10,6 +10,10 @@ using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json.Serialization;
 using Commander.Application.Profiles;
 using Commander.Domain.Models;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using Commander.Application.Validation;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,13 +21,18 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<CommanderContext>(opt => opt.UseSqlServer
     (builder.Configuration.GetConnectionString("CommanderConnection")));
 
-builder.Services.AddControllers().AddNewtonsoftJson(s =>
-{
-    s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-});
+builder.Services.AddControllers()
+    .AddNewtonsoftJson(s =>
+    {
+        s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+    })
+    .AddFluentValidation(fv =>
+    {
+        fv.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+    });
 
-// Replace AutoMapper registration - explicitly specify the assembly containing profiles
-builder.Services.AddAutoMapper(typeof(CommandsProfile));
+// Replace AutoMapper registration
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddScoped<ICommanderRepo, SqlCommanderRepo>();
 

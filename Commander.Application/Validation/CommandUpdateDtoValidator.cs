@@ -9,7 +9,7 @@ namespace Commander.Application.Validation
         {
             RuleFor(x => x.HowTo)
                 .NotEmpty().WithMessage("HowTo is required.")
-                .MaximumLength(100);
+                .MaximumLength(150);
 
             RuleFor(x => x.Line)
                 .NotEmpty().WithMessage("Line is required.")

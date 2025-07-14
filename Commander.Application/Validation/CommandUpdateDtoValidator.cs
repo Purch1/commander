@@ -12,7 +12,7 @@ namespace Commander.Application.Validation
                 .MaximumLength(150);
 
             RuleFor(x => x.Line)
-                .NotEmpty().WithMessage("Line is required.")
+                .NotEmpty().WithMessage("Line is must be passed.")
                 .MaximumLength(100);
 
             RuleFor(x => x.Platform)

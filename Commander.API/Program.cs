@@ -25,11 +25,11 @@ builder.Services.AddControllers()
     .AddNewtonsoftJson(s =>
     {
         s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-    })
-    .AddFluentValidation(fv =>
-    {
-        fv.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
     });
+
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationClientsideAdapters();
+builder.Services.AddValidatorsFromAssemblyContaining<CommandUpdateDtoValidator>();
 
 // Replace AutoMapper registration
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
